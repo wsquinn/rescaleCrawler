@@ -81,6 +81,7 @@ class threadedCrawler:
     def crawl(self):
         while True:
             try:
+                
                 #grab the next url and/or wait 30 seconds to see if any get queued 
                 try:
                     queuedURL = self.crawl_queue.get(timeout=30)
@@ -94,6 +95,7 @@ class threadedCrawler:
                     #break loop if max depth is reached
                     if self.currentDepth >= self.maxDepth:
                         return
+
                     #add it to cache so that we don't recrawl it
                     self.cache.add(queuedURL)
 
@@ -104,13 +106,14 @@ class threadedCrawler:
                     
             #if link doesn't work, just go to the next
             except Exception as e:
-                print('Error at ',targer_url,': ',e)
+                print('Error at ',queuedURL,': ',e)
                 continue
   
 if __name__ == '__main__':
-    newCrawler = threadedCrawler(sys.argv[1], 6)
+    #take optional depth input, run forever if no depth specified
+    if len(sys.argv)==3:
+        newCrawler = threadedCrawler(sys.argv[1], int(sys.argv[2]))
+    else:
+        newCrawler = threadedCrawler(sys.argv[1], float('inf'))
+        
     newCrawler.crawl()
-
-
-
-
