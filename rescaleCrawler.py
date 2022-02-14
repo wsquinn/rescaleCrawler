@@ -27,7 +27,7 @@ class threadedCrawler:
         #options for controlling depth of crawl
         self.currentDepth = 0
         self.maxDepth=maxDepth
-        self.linksSeen=1
+        self.linksSeen=0
   
     def recursiveCrawl(self, res):
         #check if status code is good and results are there
@@ -107,7 +107,7 @@ class threadedCrawler:
                 continue
   
 if __name__ == '__main__':
-    newCrawler = threadedCrawler("https://rescale.com/", 1)
+    newCrawler = threadedCrawler("https://rescale.com/", 3)
     newCrawler.crawl()
 
 
