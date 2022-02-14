@@ -9,9 +9,9 @@ I developed this in a Windows environment so without a MacOS or Linux enviornmen
 If you are now safely in a virtual enviroment, the following two commands will let you see the crawler in action! 
 
 `pip install -r requirements.txt`
-`python3 rescaleCrawler.py` or `python rescaleCrawler.py`
+`python3 rescaleCrawler.py https://rescale.com/` or `python rescaleCrawler.py https://rescale.com/`
 
-The current starting point is the rescale homepage, and it crawls to a depth of 3. Both of those variables can be changed in the code!
+The current example is the rescale homepage, and it crawls to a depth of 6, but that can be changed in the code.
 
 The following command will run the tests:
 

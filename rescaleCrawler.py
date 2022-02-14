@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urljoin, urlparse
 import requests
 import validators
+import sys
   
   
 class threadedCrawler:
@@ -107,7 +108,7 @@ class threadedCrawler:
                 continue
   
 if __name__ == '__main__':
-    newCrawler = threadedCrawler("https://rescale.com/", 3)
+    newCrawler = threadedCrawler(sys.argv[1], 6)
     newCrawler.crawl()
 
 
